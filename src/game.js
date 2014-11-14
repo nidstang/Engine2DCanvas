@@ -1,3 +1,4 @@
+console.time("Time start");
 var engine = engine2d.create({
 	canvas: {
 		canvasElement: document.getElementById("canvas"),
@@ -60,6 +61,7 @@ sm.init(infoScenes);
 sm.selectScene("test");
 
 var lastTime = 0;
+var fps = 0;
 
 function main() {
 	var now = Date.now();
@@ -67,9 +69,13 @@ function main() {
 
 	engine.run(dt);
 
+	//Show fps
+	fps = 1/dt;
+	//console.log("FPS: " + fps);
+
 	lastTime = now;
 	requestAnimationFrame(main);
 };
 
-
+console.timeEnd("Time start");
 main();
