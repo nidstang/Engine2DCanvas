@@ -14,18 +14,10 @@ function MapContainer()
       
       for(j = 0; i < MaxY; j++)
       {
-        MatrixMap[i][j] = New Map(new Array(i,j), new Array());
+        MatrixMap[i][j] = New Map(new Array(i,j));
       }
     }
   }
   
-  this.GetMaxX = function()
-  {
-    return this.MaxX;
-  }
-  
-  this.GetMaxY = function()
-  {
-    return this.MaxY;
-  }
+
 }
