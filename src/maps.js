@@ -1,13 +1,13 @@
-function Map(coor, chararray){
+function Map(coor){
 
 	this.Coor = coor;
-	this.CharArray[] = chararray;
+	this.CharArray = [];
 	
 	
 }
 
 function MapWild(coor, chararray, matrixenemies){
-	Map.call(this, coor, chararray);
+	Map.call(this, coor);
 
 	this.MatrixEnemies = matrixenemies;
 
@@ -16,7 +16,7 @@ function MapWild(coor, chararray, matrixenemies){
 MapWild.protoype = new Map();
 
 function MapCity(coor, chararray, arraybuildings){
-	Map.call(this, coor, chararray);
+	Map.call(this, coor);
 
 	this.ArrayBuildings = arraybuildings;
 
