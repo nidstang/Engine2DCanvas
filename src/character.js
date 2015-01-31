@@ -19,7 +19,7 @@ function Character(charname, coor) {
 		}
 		else if (cardinal == "S")
 		{
-			if this.Coor[1] == 100 //FIN DEL MAPA ¿LLAMADA AL MAPCONTAINER?
+			if this.Coor[1] == Mapcontainer.MaxY //FIN DEL MAPA ¿LLAMADA AL MAPCONTAINER?
 			{
 				console.log("You have reached the limit of the map")
 			}
@@ -30,7 +30,7 @@ function Character(charname, coor) {
 		}
 		else if (cardinal == "E")
 		{
-			if this.Coor[0] == 100 //FIN DEL MAPA ¿LLAMADA AL MAPCONTAINER?
+			if this.Coor[0] == Mapcontainer.MaxX //FIN DEL MAPA ¿LLAMADA AL MAPCONTAINER?
 			{
 				console.log("You have reached the limit of the map")
 			}
