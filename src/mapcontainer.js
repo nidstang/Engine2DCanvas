@@ -14,7 +14,7 @@ function MapContainer()
       
       for(j = 0; i < MaxY; j++)
       {
-        MatrixMap[i][j] = New Map(new Array(i,j));
+        MatrixMap[i][j] = New Map(new Array[i,j]);
       }
     }
   }
