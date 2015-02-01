@@ -4,7 +4,7 @@ function MapContainer()
   this.MaxX = 50;
   this.MaxY = 50;
 
-  this.MatrixMap[];
+  this.MatrixMap = [];
   
   this.Initialize = function(MaxX, MaxY, MatrixMap) //Inicializa una matriz de objetos tipo Mapa
   {
