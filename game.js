@@ -71,7 +71,7 @@ function main() {
 
 	//Show fps
 	fps = 1/dt;
-	//console.log("FPS: " + fps);
+	console.log("FPS: " + fps);
 
 	lastTime = now;
 	requestAnimationFrame(main);
