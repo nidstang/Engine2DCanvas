@@ -21,79 +21,83 @@ Into the index.html you will find a little sprite moving.
 
 ### Scene and Entity extends:
 
- <nowiki>
+<nowiki>
+	function SceneTest(content) {
+		engine2d.Scene.call(this, content);
+	};
 
-function SceneTest(content) {
-	engine2d.Scene.call(this, content);
-};
+	SceneTest.prototype = Object.create(engine2d.Scene.prototype);
+	SceneTest.prototype.constructor = SceneTest;
 
-SceneTest.prototype = Object.create(engine2d.Scene.prototype);
-SceneTest.prototype.constructor = SceneTest;
+	function EntityTest(content) {
+		engine2d.Entity.call(this, content.x, content.y);
 
-function EntityTest(content) {
-	engine2d.Entity.call(this, content.x, content.y);
+		this._sprite = Globals.engine.spriteFactory.getById(content.sprite, [this._x, this._y]);
+		//console.log(this._sprite);
+	};
 
-	this._sprite = Globals.engine.spriteFactory.getById(content.sprite, [this._x, this._y]);
-	//console.log(this._sprite);
-};
-
-EntityTest.prototype = Object.create(engine2d.Entity.prototype);
-EntityTest.prototype.constructor = EntityTest;</nowiki>
+	EntityTest.prototype = Object.create(engine2d.Entity.prototype);
+	EntityTest.prototype.constructor = EntityTest;
+</nowiki>
 
 ### Entity changes
- <nowiki>
+<nowiki>
 
-EntityTest.prototype.update = function(dt) {
-	this._x += 50 * dt;
-	engine2d.Entity.prototype.update.call(this, dt);
-};</nowiki>
+	EntityTest.prototype.update = function(dt) {
+		this._x += 50 * dt;
+		engine2d.Entity.prototype.update.call(this, dt);
+	};
+</nowiki>
 
 ### Create data for scenes and its sprites
 
- <nowiki>
+<nowiki>
 	{
-	name: "test",
-	obj: SceneTest,
-	content: {
-		entities: [
-			{name: "e3", x:20, y:20, o: EntityTest, sprite: "sp1"}
-		],
-		sprites: [
-			{ id: "sp1", size: { w:10, h:10 }, resource: "http://www.herbalife.com.pa/Content/Global/img/layout/icon_arrow.gif" }
-		]
+		name: "test",
+		obj: SceneTest,
+		content: {
+			entities: [
+				{name: "e3", x:20, y:20, o: EntityTest, sprite: "sp1"}
+			],
+			sprites: [
+				{ id: "sp1", size: { w:10, h:10 }, resource: "http://www.herbalife.com.pa/Content/Global/img/layout/icon_arrow.gif" }
+			]
+		}
 	}
-}</nowiki>
+</nowiki>
 
 ### Create a new instance from Engine2D
 
- <nowiki>
- 	var engine = engine2d.create({
-	canvas: {
-		canvasElement: document.getElementById("canvas"),
-		width: 300,
-		height: 300
-	}
-});
+<nowiki>
+	 	var engine = engine2d.create({
+		canvas: {
+			canvasElement: document.getElementById("canvas"),
+			width: 300,
+			height: 300
+		}
+	});
 
-sm.init(infoScenes);
-sm.selectScene("test");</nowiki>
+	sm.init(infoScenes);
+	sm.selectScene("test");
+</nowiki>
 
 ### The main function
 
- <nowiki>
- 	function main() {
-	var now = Date.now();
-	var dt = (now - lastTime) / 1000.0;
+<nowiki>
+	function main() {
+		var now = Date.now();
+		var dt = (now - lastTime) / 1000.0;
 
-	engine.run(dt);
+		engine.run(dt);
 
-	//Show fps
-	fps = 1/dt;
-	//console.log("FPS: " + fps);
+		//Show fps
+		fps = 1/dt;
+		//console.log("FPS: " + fps);
 
-	lastTime = now;
-	requestAnimationFrame(main);
-};</nowiki>
+		lastTime = now;
+		requestAnimationFrame(main);
+	};
+</nowiki>
 
 
 
