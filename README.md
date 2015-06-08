@@ -21,7 +21,7 @@ Into the index.html you will find a little sprite moving.
 
 ### Scene and Entity extends:
 
-<code>
+```javascript
 function SceneTest(content) {
 	engine2d.Scene.call(this, content);
 };
@@ -38,19 +38,20 @@ function EntityTest(content) {
 
 EntityTest.prototype = Object.create(engine2d.Entity.prototype);
 EntityTest.prototype.constructor = EntityTest;
-</code>
+```
 
 ### Entity changes
-<code>
+```javascript
 EntityTest.prototype.update = function(dt) {
 	this._x += 50 * dt;
 	engine2d.Entity.prototype.update.call(this, dt);
 };
-</code>
+```
 
 ### Create data for scenes and its sprites
 
-<code>
+```javascript
+var infoScenes = [
 {
 	name: "test",
 	obj: SceneTest,
@@ -63,26 +64,27 @@ EntityTest.prototype.update = function(dt) {
 		]
 	}
 }
-</code>
+];
+```
 
 ### Create a new instance from Engine2D
 
-<code>
-	 	var engine = engine2d.create({
-		canvas: {
-			canvasElement: document.getElementById("canvas"),
-			width: 300,
-			height: 300
-		}
-	});
+```javascript
+var engine = engine2d.create({
+	canvas: {
+		canvasElement: document.getElementById("canvas"),
+		width: 300,
+		height: 300
+	}
+});
 
-	sm.init(infoScenes);
-	sm.selectScene("test");
-</code>
+sm.init(infoScenes);
+sm.selectScene("test");
+```
 
 ### The main function
 
-<code>
+```javascript
 function main() {
 	var now = Date.now();
 	var dt = (now - lastTime) / 1000.0;
@@ -96,7 +98,7 @@ function main() {
 	lastTime = now;
 	requestAnimationFrame(main);
 };
-</code>
+```
 
 
 
