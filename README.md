@@ -1,17 +1,17 @@
 # Engine 2D Library
 This is a piece of software for using canvas 2D written in JavaScript language.
 
-Engine2DCanvas allows manage Scenes and Sprites. One scene may have many sprites.
+Engine2DCanvas allows to manage Scenes and Sprites. One scene may have many sprites.
 
 
 # Components
-Two facotries: The SpriteFactory and the SceneFactory.
-The scenes are controlled from SceneManager.
+Two factories: The SpriteFactory and the SceneFactory.
+The SceneManager manages the scenes.
 
 ## Important
 Now we're at ALPHA version.
 
-Some feature still don't work, such as Sprite animations.
+Some features still don't work, such as Sprite animations.
 
 ## Installation
 You only must clone this repository and view in your browser the index.html.
